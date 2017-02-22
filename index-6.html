@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .is-loading{ background-color: red; }
+    </style>
+</head>
+<body>
+
+<div id="root">
+
+    <h2>All Tasks</h2>
+    <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+
+
+    <h2>Incomplete Tasks</h2>
+    <ul>
+        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+    </ul>
+
+</div>
+
+<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+
+        el: '#root',
+
+        data: {
+            tasks: [
+                { description: 'Go to the store', completed: true },
+                { description: 'Finish screencast', completed: false },
+                { description: 'Make donation', completed: false },
+                { description: 'Clear inbox', completed: false },
+                { description: 'Make dinner', completed: false },
+                { description: 'Clean room', completed: true },
+            ]
+        },
+
+        computed: {
+            incompleteTasks(){
+                return this.tasks.filter(task => ! task.completed);
+
+//                this.tasks.filter(function (task){
+//                    return ! task.completed;
+//                });
+            }
+        }
+    });
+</script>
+</body>
+</html>
