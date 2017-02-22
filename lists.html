@@ -15,9 +15,10 @@
         <li v-for="name in names">{{ name }}</li>
     </ul>
 
-    <input type="text" id="input">
+    <input type="text" id="input" v-model="newName">
 
-    <button id="button">Add Name</button>
+    <!-- Vue event listener -->
+    <button @click="addName">Add Name</button>
 </div>
 
 <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
@@ -29,7 +30,15 @@
         el: '#root',
 
         data: {
+            newName: '',
             names: ['Joe', 'Mary', 'Jane', 'Jack']
+        },
+
+        methods: {
+            addName() {
+                this.names.push(this.newName);
+                this.newName = '';
+            }
         },
 
         mounted() {
