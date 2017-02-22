@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .is-loading{ background-color: red; }
+    </style>
+</head>
+<body>
+
+<div id="root">
+    <!-- Attribute binding -->
+
+    <button @click="toggleClass" :title="title" :class="{ 'is-loading': isLoading }">Toggle Me</button>
+
+</div>
+
+<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+
+        el: '#root',
+
+        data: {
+            title: 'Now the title is javascript title.',
+            isLoading: false
+        },
+
+        methods:{
+            toggleClass() {
+                this.isLoading = true;
+            }
+        }
+    });
+</script>
+</body>
+</html>
