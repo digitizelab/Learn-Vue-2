@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css" />
+    <style>
+        body{
+            padding-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root" class="container">
+
+<modal v-show="showModal" @close="showModal = false">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong></p>
+</modal>
+
+<button @click="showModal = true">Show Modal</button>
+</div>
+
+<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+<script src="main-10.js"></script>
+</body>
+</html>
